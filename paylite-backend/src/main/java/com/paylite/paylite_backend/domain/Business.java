@@ -1,9 +1,11 @@
 package com.paylite.paylite_backend.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 @Entity
 @Table(name = "business")
+@Getter
 public class Business extends BaseEntity{
 
     @Id
@@ -30,20 +32,6 @@ public class Business extends BaseEntity{
 
         this.name = name;
         this.maxEmployees = maxEmployees != null ? maxEmployees : 10;
-    }
-
-    // ---- Getters ONLY (no setters for id or timestamps) ----
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Integer getMaxEmployees() {
-        return maxEmployees;
     }
 
     // ---- Controlled mutation ----
