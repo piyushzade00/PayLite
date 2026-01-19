@@ -1,11 +1,14 @@
 package com.paylite.paylite_backend.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "business")
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Business extends BaseEntity{
 
     @Id
@@ -17,10 +20,6 @@ public class Business extends BaseEntity{
 
     @Column(name = "max_employees", nullable = false)
     private Integer maxEmployees = 10;
-
-    protected Business() {
-        // Required by JPA
-    }
 
     public Business(String name, Integer maxEmployees) {
         if (name == null || name.isBlank()) {

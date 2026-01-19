@@ -1,7 +1,9 @@
 package com.paylite.paylite_backend.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
@@ -13,6 +15,7 @@ import java.math.BigDecimal;
         }
 )
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PayrollPolicy extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,10 +42,6 @@ public class PayrollPolicy extends BaseEntity{
             scale = 2
     )
     private BigDecimal overtimeRatePerHour;
-
-    protected PayrollPolicy() {
-        // JPA only
-    }
 
     public PayrollPolicy(
             Business business,
